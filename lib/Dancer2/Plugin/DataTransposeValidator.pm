@@ -3,8 +3,7 @@ package Dancer2::Plugin::DataTransposeValidator;
 use strict;
 use warnings;
 
-use Dancer2;
-use Dancer2::Plugin;
+use Dancer2::Plugin2;
 use aliased 'Dancer::Plugin::DataTransposeValidator::Validator';
 
 =head1 NAME
@@ -13,19 +12,21 @@ Dancer2::Plugin::DataTransposeValidator - Data::Transpose::Validator plugin for 
 
 =cut
 
-register validator => sub {
-    my ( $dsl, $params, $rules_file, @additional_args ) = @_;
+plugin_keywords validator => sub {
 
+    my ( $plugin, $params, $rules_file, @additional_args ) = @_;
+
+    use Data::Dumper::Concise;
+    print STDERR Dumper($plugin->config);
     Validator->new(
         additional_args => @additional_args ? [@additional_args] : [],
-        appdir          => $dsl->setting('appdir'),
+        appdir          => $plugin->app->setting('appdir'),
         params          => $params,
-        plugin_setting  => plugin_setting,
+        plugin_setting  => $plugin->config || {},
         rules_file      => $rules_file
     )->transpose;
 };
 
-register_plugin;
 
 1;
 __END__

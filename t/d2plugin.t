@@ -14,8 +14,8 @@ use Plack::Builder;
 use Plack::Test;
 
 sub BEGIN {
-    try_load_class('Dancer2', { -version => '0.15' } )
-      or plan skip_all => "Dancer2 >= 0.15 required to run these tests";
+#    try_load_class('Dancer2', { -version => '0.15' } )
+#      or plan skip_all => "Dancer2 >= 0.15 required to run these tests";
 }
 
 sub from_json {
@@ -28,7 +28,7 @@ sub from_json {
     use Dancer2;
     use Dancer2::Plugin::DataTransposeValidator;
     set appdir => File::Spec->catdir( 't', 'appdir' );
-    set logger => "null";
+    set logger => "console";
 
     get '/' => sub {
         return "home";
@@ -130,7 +130,7 @@ like( $res->content, qr/home/, "Content contains home" );
 # errors_hash is false
 $req = POST "$uri/default", [ foo => "bar" ];
 $res = $test->request($req);
-ok( $res->is_success, "post good foo" );
+ok( $res->is_success, "post good foo" ) or diag $res->content;
 
 $expected = {
     css => {
