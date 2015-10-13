@@ -16,8 +16,6 @@ plugin_keywords validator => sub {
 
     my ( $plugin, $params, $rules_file, @additional_args ) = @_;
 
-    use Data::Dumper::Concise;
-    print STDERR Dumper($plugin->config);
     Validator->new(
         additional_args => @additional_args ? [@additional_args] : [],
         appdir          => $plugin->app->setting('appdir'),
