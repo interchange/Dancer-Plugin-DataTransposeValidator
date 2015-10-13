@@ -13,5 +13,5 @@ perl:
 # temp use of yanicks repo for d2p2
 install:
   - cpanm --quiet --notest MooX::ClassAttribute
-  - cpanm --quiet --notest Dancer https://github.com/yanick/Dancer2/tree/plugins-yanick Test::CheckManifest Test::Spelling Pod::Coverage Test::Pod::Coverage
+  - cpanm --quiet --notest Dancer git@github.com:yanick/Dancer2.git Test::CheckManifest Test::Spelling Pod::Coverage Test::Pod::Coverage
   - cpanm --quiet --installdeps --notest .
