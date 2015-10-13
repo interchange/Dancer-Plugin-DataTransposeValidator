@@ -12,7 +12,7 @@ perl:
 # MooX::ClassAttribute missing from yanick's d2p2 deps
 # temp use of yanicks repo for d2p2
 before_install:
-  - cpanm --quiet --notest MooX::ClassAttribute
+  - cpanm --quiet --notest MooX::ClassAttribute Test::WWW::Mechanize::PSGI Test::CPAN::Meta
   - cpanm --quiet --notest Dist::Zilla
   - git clone git://github.com/yanick/Dancer2.git ~/yanick-d2
   - cd ~/yanick-d2
