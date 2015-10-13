@@ -22,7 +22,8 @@ before_install:
   - dzil build --in d2build
   - cd d2build
   - cpanm --quiet --installdeps --notest .
-  - cpanm --quiet --notest .
+  - perl Makefile.PL
+  - make install
 install:
   - cpanm --quiet --notest Dancer Test::CheckManifest Test::Spelling Pod::Coverage Test::Pod::Coverage
   - cpanm --quiet --installdeps --notest .
