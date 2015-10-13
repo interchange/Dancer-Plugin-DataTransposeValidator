@@ -24,6 +24,7 @@ before_install:
   - cpanm --quiet --installdeps --notest .
   - perl Makefile.PL
   - make install
+  - cd ~
 install:
   - cpanm --quiet --notest Dancer Test::CheckManifest Test::Spelling Pod::Coverage Test::Pod::Coverage
   - cpanm --quiet --installdeps --notest .
