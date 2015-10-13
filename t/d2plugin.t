@@ -22,7 +22,9 @@ sub from_json {
     return JSON::from_json(shift);
 }
 
-package TestAppNoConfig {
+{
+
+    package TestAppNoConfig;
 
     use Dancer2;
     use Dancer2::Plugin::DataTransposeValidator;
@@ -55,7 +57,9 @@ package TestAppNoConfig {
     };
 }
 
-package TestAppNoErrorsJoined {
+{
+
+    package TestAppNoErrorsJoined;
 
     use Dancer2;
     use Dancer2::Plugin::DataTransposeValidator;
@@ -76,7 +80,9 @@ package TestAppNoErrorsJoined {
     };
 }
 
-package TestAppNoErrorsArrayRef {
+{
+
+    package TestAppNoErrorsArrayRef;
 
     use Dancer2;
     use Dancer2::Plugin::DataTransposeValidator;
@@ -97,7 +103,9 @@ package TestAppNoErrorsArrayRef {
     };
 }
 
-package TestAppCssErrorClass {
+{
+
+    package TestAppCssErrorClass;
 
     use Dancer2;
     use Dancer2::Plugin::DataTransposeValidator;
@@ -118,7 +126,9 @@ package TestAppCssErrorClass {
     };
 }
 
-package TestAppBadRulesDir {
+{
+
+    package TestAppBadRulesDir;
 
     use Dancer2;
     use Dancer2::Plugin::DataTransposeValidator;
@@ -139,7 +149,9 @@ package TestAppBadRulesDir {
     };
 }
 
-package TestAppGoodRulesDir {
+{
+
+    package TestAppGoodRulesDir;
 
     use Dancer2;
     use Dancer2::Plugin::DataTransposeValidator;
