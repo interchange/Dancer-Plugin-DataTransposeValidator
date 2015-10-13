@@ -12,6 +12,7 @@ perl:
 # MooX::ClassAttribute missing from yanick's d2p2 deps
 # temp use of yanicks repo for d2p2
 before_install:
+  - PWD=`pwd`
   - cpanm --quiet --notest MooX::ClassAttribute Test::WWW::Mechanize::PSGI Test::CPAN::Meta
   - cpanm --quiet --notest Dist::Zilla
   - git clone git://github.com/yanick/Dancer2.git ~/yanick-d2
@@ -24,7 +25,8 @@ before_install:
   - cpanm --quiet --installdeps --notest .
   - perl Makefile.PL
   - make install
-  - cd ~
+  - echo $PWD
+  - cd $PWD
 install:
   - cpanm --quiet --notest Dancer Test::CheckManifest Test::Spelling Pod::Coverage Test::Pod::Coverage
   - cpanm --quiet --installdeps --notest .
